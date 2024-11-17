@@ -1,99 +1,32 @@
-# Next.js Creative Portfolio Tutorial: Build Amazing Portfolio Website with Next.js, Three.js, and Tailwind CSS 🔥
+# Somnath Chattaraj's Portfolio
 
-![GitHub stars](https://img.shields.io/github/stars/Somnath Chattaraj27/Next.js-Creative-Portfolio-Website?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/Somnath Chattaraj27/Next.js-Creative-Portfolio-Website?style=social&logo=KashFlow&maxAge=3600)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/Somnath Chattaraj27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+Welcome to my portfolio! This is a showcase of my skills, projects, and experiences in software development, highlighting my journey as a developer and the technologies I specialize in.
 
-This repository contains **final code** for Next.js Creative Portfolio website built using Next.js and Three.js. <br />
+## 🌟 Overview
 
-For Demo checkout following link👇: <br />
-[Nextjs Creative Portfolio Website Demo](https://next-js-creative-portfolio-website.vercel.app/) <br />
+This portfolio is built with the following technologies:
 
-Starter Code Files👇: <br />
-➡ Link 💚: [Nextjs Creative Portfolio Website Starter Code](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files) <br />
-<!--- ➡ Link 2💚(If you want to support): [Nextjs Creative Portfolio Website Final Code](https://Somnath Chattaraj.gumroad.com/l/ypzlu) <br /> --->
+- **Next.js**: A powerful React framework for building fast and scalable web applications.
+- **Framer Motion**: A popular library for creating smooth animations and transitions.
+- **Three.js**: A 3D library for creating stunning visual effects and interactive graphics.
 
-If you want to learn how to create it please follow below tutorial👇: <br />
-➡ Tutorial Link 💚: [Personal Portfolio Website with Next.js, Three.js & Tailwind CSS Tutorial](https://youtu.be/T5t46vuW8fo) 
-[![YouTube Video Views](https://img.shields.io/youtube/views/T5t46vuW8fo
-)](https://youtu.be/T5t46vuW8fo) <br />
+- **Tailwind css**: A utility-first CSS framework that helps me design responsive and flexible user interfaces quickly.
 
-💚 Checkout my personal website [DevDreaming](https://devdreaming.com) <br />
 
----
-# ⭐DO NOT FORGET TO STAR THIS REPO⭐
----
 
-## Images of The Portfolio Website:
+## 💻 Projects
 
-#### Home
-![Nextjs Creative Portfolio Website](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Home-desktop.png)
+Explore my projects showcasing my expertise in various technologies, including:
 
-#### About
-![Nextjs Creative Portfolio Website About Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/About-desktop-full.png)
+ - Web3 Development: With experience in building decentralized applications and smart contracts, especially on Solana.
 
-#### Projects
-![Next.js Creative Portfolio Website Projects Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Projects-desktop.png)
+ - MERN Stack: Proficient in developing full-stack applications using MongoDB, Express, React, and Node.js.
 
-#### Contact
-![Next.js Creative Portfolio Website Contact Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Contact-desktop.png)
+ - DevOps: Experience in managing deployments, cloud services (like EC2), and CI/CD pipelines.
 
-#### Mobile Version
-![Next.js Creative Portfolio Website Contact Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Home-mobile.png)
-![Next.js Creative Portfolio Website Contact Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/About-mobile.png)
-![Next.js Creative Portfolio Website Contact Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Projects-mobile.png)
-![Next.js Creative Portfolio Website Contact Page](https://github.com/Somnath Chattaraj27/Nextjs-Creative-Portfolio-Starter-Code-Files/blob/main/website%20images/Contact-mobile.png)
+## 🎨 About Me
 
-## Resources Used in This Project
+I am Somnath Chattaraj, a passionate full-stack web developer specializing in the MERN stack, with a growing skill set in Next.js, data structures, algorithms in C++, and a bit of iOS development. I enjoy learning new technologies, solving complex problems, and pushing the boundaries of what I can create. I'm also deeply interested in DevOps and Web3 technologies, with a focus on building decentralized applications and optimizing cloud infrastructure.
 
-#### 3D Models
+My goal is to build intuitive, scalable, and engaging web applications that provide meaningful experiences through code and design.
 
-- ["Tim Mckee - Boy Wizard"](https://skfb.ly/6YATu) by [elbertwithane is licensed under Creative Commons Attribution ](http://creativecommons.org/licenses/by/4.0/).
-- ["Stylized wizard hat"](https://skfb.ly/ozxOQ) by [Enkarra is licensed under Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
-- ["Wizard Staff"](https://skfb.ly/6QYZw) by [Toymancer Studio is licensed under Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
-
-#### AI Images
-
-- Created with the help of [Playground AI](https://playgroundai.com/)
-
-#### Github Stats & Details
-
-- [Github ReadMe Stats](https://github.com/anuraghazra/github-readme-stats)
-- [Skills Icons](https://github.com/tandpfun/skill-icons)
-- [Github Readme Streak Stats](https://github.com/denvercoder1/github-readme-streak-stats)
-
-#### Development Resources
-
-- Fonts from [Google Fonts](https://fonts.google.com/) <br />
-- Icons from [Lucide Icons](https://lucide.dev/) <br />
-- Notifications from [Sonner](https://sonner.emilkowal.ski/) <br />
-- Form created using [react-hook-form](https://react-hook-form.com/) <br />
-- Animations using [framer-motion](https://www.framer.com/motion/) <br />
-- Emails using [Emailjs](https://www.emailjs.com/) <br />
-- Convert 3d models to JSX using [Gltf JSX](https://github.com/pmndrs/gltfjsx)
-
-#### Audio 
-
-- Music by <a href="https://pixabay.com/users/shidenbeatsmusic-25676252/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=20772">Shiden Beats Music</a> from <a href="https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=20772">Pixabay</a>
-
----
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, install the dependencies and run the development server:
-
-```bash
-npm run install # to install all dependencies
-
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
