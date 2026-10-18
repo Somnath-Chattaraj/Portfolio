@@ -11,7 +11,7 @@ export default function Projects() {
       number="01"
       label="SELECTED SYSTEMS"
       title="The engineering behind the interface."
-      description="Five projects, explored from source: the data models, execution paths, and trade-offs that shape them."
+      description="Six projects, explored from source: the data models, execution paths, and trade-offs that shape them."
     >
       <div className={styles.projects}>
         {projects.map((project) => (
@@ -19,7 +19,7 @@ export default function Projects() {
             <div className={`${styles.projectVisual} ${styles[project.tone]}`}>
               <div className={styles.visualTop}>
                 <span>{project.kind}</span>
-                <span>{project.id} / 05</span>
+                <span>{project.id} / {String(projects.length).padStart(2, "0")}</span>
               </div>
               {project.image ? (
                 <figure className={styles.projectFigure}>
