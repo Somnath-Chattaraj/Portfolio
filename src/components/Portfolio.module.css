@@ -917,7 +917,7 @@
     padding: 22px;
   }
 }
-/* Interactive islands: theme, topology, and opt-in demo playback. */
+/* Interactive islands: theme and opt-in demo playback. */
 .themeToggle {
   display: inline-flex;
   align-items: center;
@@ -937,29 +937,11 @@
 .topology {
   margin: 12px -8px 16px;
 }
-.canvasHost {
-  height: 205px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.canvasHost canvas {
+.topologyMesh {
   display: block;
   width: 100%;
-  height: 100%;
-}
-.meshFallback {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  height: 205px;
   color: var(--mesh);
-}
-.canvasHost[data-ready="true"] .meshFallback {
-  display: none;
-}
-.canvasHost[data-ready="false"] canvas {
-  visibility: hidden;
 }
 .canvasCaption {
   display: flex;
@@ -972,18 +954,6 @@
   letter-spacing: 0.3px;
   color: var(--muted);
   padding: 0 8px;
-}
-.canvasCaption button {
-  font: inherit;
-  color: var(--muted);
-  padding: 7px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: transparent;
-  cursor: pointer;
-}
-.canvasCaption button:hover {
-  color: var(--ink);
 }
 .projectFigure {
   margin: 24px 0;
@@ -1263,24 +1233,18 @@
     font-size: 8px;
   }
 }
+/* A small CSS transform replaces per-thumbnail WebGL rendering. */
 .thumbnailSurface {
-  position: relative;
   width: 100%;
-  isolation: isolate;
+  overflow: hidden;
 }
-.thumbnailSurface > img {
-  transition: none;
-}
-.thumbnailSurface[data-hover-ready="true"] > img {
-  opacity: 0;
-}
-.thumbnailCanvas {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .thumbnailSurface > img {
+    transition: transform 180ms ease-out;
+  }
+  .thumbnailSurface:hover > img {
+    transform: scale(1.025);
+  }
 }
 .videoTrigger {
   display: flex;

@@ -1,6 +1,6 @@
 import { profile } from "@/data/portfolio";
 import Arrow from "./Arrow";
-import TopologyCanvas from "./TopologyCanvas";
+import TopologyIllustration from "./TopologyIllustration";
 import styles from "./Portfolio.module.css";
 export default function Hero() {
   return (
@@ -48,7 +48,7 @@ export default function Hero() {
           <span className={styles.eyebrow}>THE ENGINEERING APPROACH</span>
           <span className={styles.smallIndex}>SC / 01</span>
         </div>
-        <TopologyCanvas />
+        <TopologyIllustration />
         <p>
           Good software feels simple.
           <br />

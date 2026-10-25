@@ -1,4 +1,4 @@
-import HoverThumbnail from "./HoverThumbnail";
+import ProjectThumbnail from "./ProjectThumbnail";
 import { projects } from "@/data/portfolio";
 import Arrow from "./Arrow";
 import Section from "./Section";
@@ -27,7 +27,7 @@ export default function Projects() {
                     <span>● ● ●</span>
                     <span>{project.mediaLabel}</span>
                   </div>
-                  <HoverThumbnail
+                  <ProjectThumbnail
                     src={project.image}
                     alt={project.imageAlt}
                     width={project.imageWidth}
