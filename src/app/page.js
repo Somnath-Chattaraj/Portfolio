@@ -1,32 +1,24 @@
-import Image from "next/image";
-import bg from "../../public/background/home-background.png";
-import RenderModel from "@/components/RenderModel";
-// import Wizard from "@/components/models/Wizard";
-import Navigation from "@/components/navigation";
-
-import dynamic from "next/dynamic";
-const Wizard = dynamic(() => import("@/components/models/Wizard"), {
-  ssr: false,
-});
-
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
+import About from "@/components/About";
+import Footer from "@/components/Footer";
+import styles from "@/components/Portfolio.module.css";
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between relative">
-      <Image
-        priority
-        sizes="100vw"
-        src={bg}
-        alt="background-image"
-        fill
-        className="-z-50 w-full h-full object-cover object-center opacity-50"
-      />
-
-      <div className="w-full h-screen">
-        <Navigation />
-        <RenderModel>
-          <Wizard />
-        </RenderModel>
-      </div>
-    </main>
+    <div id="top" className={styles.shell}>
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <Header />
+      <main id="main">
+        <Hero />
+        <Projects />
+        <Experience />
+        <About />
+      </main>
+      <Footer />
+    </div>
   );
 }
