@@ -1,0 +1,65 @@
+diff --git a/frontend/package.json b/frontend/package.json
+index 69d549b..cc456ec 100644
+--- a/frontend/package.json
++++ b/frontend/package.json
+@@ -48,7 +48,7 @@
+     "eslint-plugin-react-hooks": "^5.0.0",
+     "eslint-plugin-react-refresh": "^0.4.7",
+     "postcss": "^8.4.47",
+-    "tailwindcss": "^4.1.16",
++    "tailwindcss": "^3.4.18",
+     "vite": "^6.0.3"
+   }
+ }
+diff --git a/frontend/src/components/homePage/HomePage.jsx b/frontend/src/components/homePage/HomePage.jsx
+index a842e1d..11ebd57 100644
+--- a/frontend/src/components/homePage/HomePage.jsx
++++ b/frontend/src/components/homePage/HomePage.jsx
+@@ -15,7 +15,7 @@ export const Header = () => {
+   const navigate = useNavigate();
+   const { loadingUser, userDetails } = useUser();
+   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+-  const sidebarRef = useRef<HTMLDivElement | null>(null);
++  const sidebarRef = useRef(null);
+ 
+   useEffect(() => {
+     gsap.to(".first-page-image", {
+diff --git a/frontend/src/firebase.js b/frontend/src/firebase.js
+index 6e04e91..d336d5a 100644
+--- a/frontend/src/firebase.js
++++ b/frontend/src/firebase.js
+@@ -19,17 +19,17 @@ const firebaseConfig = {
+ };
+ 
+ // Initialize Firebase
+-const app = initializeApp(firebaseConfig);
+-const analytics = getAnalytics(app);
+-const auth = getAuth(app);
++const app = firebaseConfig.apiKey ? initializeApp(firebaseConfig) : null;
++const analytics = app ? getAnalytics(app) : null;
++const auth = app ? getAuth(app) : null;
+ const googleProvider = new GoogleAuthProvider();
+ const githubProvider = new GithubAuthProvider();
+ 
+-const appCheck = initializeAppCheck(app, {
++const appCheck = app && import.meta.env.VITE_RECAPTCHA_SITE_KEY ? initializeAppCheck(app, {
+   provider: new ReCaptchaEnterpriseProvider(
+     import.meta.env.VITE_RECAPTCHA_SITE_KEY
+   ),
+   isTokenAutoRefreshEnabled: true,
+-});
++}) : null;
+ 
+ export { auth, googleProvider, githubProvider, appCheck };
+diff --git a/frontend/src/hook/useUser.jsx b/frontend/src/hook/useUser.jsx
+index 2656d4a..734a302 100644
+--- a/frontend/src/hook/useUser.jsx
++++ b/frontend/src/hook/useUser.jsx
+@@ -9,6 +9,7 @@ export const useUser = () => {
+     try {
+       const res = await axios.get("/api/user/me", {
+         withCredentials: true,
++        timeout: 3000,
+       });
+       setUserDetails(res.data);
+       setLoadingUser(false); // Move setLoading inside try block to ensure it's always set

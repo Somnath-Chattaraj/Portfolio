@@ -25,8 +25,7 @@ export default function Hero() {
           </a>
           <a
             href={profile.resume}
-            target="_blank"
-            rel="noopener noreferrer"
+            download="Somnath-Chattaraj-Resume.pdf"
             className={styles.textLink}
           >
             Download resume <Arrow />

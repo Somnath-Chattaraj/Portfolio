@@ -2,11 +2,10 @@ export const profile = {
   name: "Somnath Chattaraj",
   role: "Software engineer",
   location: "Kolkata, India",
-  email: "somnathchattaraj51@gmail.com",
+  email: "somnathchattaraj5@gmail.com",
   github: "https://github.com/Somnath-Chattaraj",
   linkedin: "https://www.linkedin.com/in/somnath-chattaraj910/",
-  resume:
-    "https://drive.google.com/file/d/1Y0cYe2Wn00wkJPzraxF0t-fhAatGkaKd/view",
+  resume: "/resume.pdf",
   site: "https://portfolio.somnathc.xyz",
 };
 
