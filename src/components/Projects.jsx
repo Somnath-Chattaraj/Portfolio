@@ -65,7 +65,7 @@ export default function Projects() {
               <p className={styles.eyebrow}>PROJECT {project.id}</p>
               <h3>{project.title}</h3>
               <p className={styles.projectSubtitle}>{project.subtitle}</p>
-              <p className={styles.projectSummary}>{project.summary}</p>
+              <p className={styles.projectSummary}><strong>{project.kind}.</strong> {project.summary}</p>
               <p className={styles.projectDetail}>{project.detail}</p>
               <ul className={styles.tags} aria-label="Technologies">
                 {project.tools.map((tool) => (

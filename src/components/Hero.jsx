@@ -16,8 +16,8 @@ export default function Hero() {
           <span>Dependable systems.</span>
         </h1>
         <p className={styles.heroIntro}>
-          I’m Somnath. I build software with care — from the details of an
-          Android interaction to the systems working behind it.
+          I’m <strong className={styles.highlight}>Somnath</strong>. I build software with care — from the details of an{" "}
+          <strong className={styles.highlight}>Android interaction</strong> to the <strong className={styles.highlight}>systems</strong> working behind it.
         </p>
         <div className={styles.actions}>
           <a href="#work" className={styles.primaryButton}>

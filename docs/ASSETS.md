@@ -1,16 +1,17 @@
 # Project captures and refresh workflow
 
-The portfolio already includes all five thumbnail assets. They are genuine screenshots, not generated mockups. Browser chrome is drawn by the portfolio component around the unmodified screen image.
+The portfolio already includes all six thumbnail assets. They are genuine screenshots, not generated mockups. Browser chrome is drawn by the portfolio component around the unmodified screen image.
 
 | Asset | Source | Capture state |
 | --- | --- | --- |
+| `public/projects/chess.png` | Chess repository `docs/preview.png` | Repository preview, 1280 × 1062; JPEG source converted to PNG |
 | `public/projects/ecox.png` | https://ecox.wedevs.xyz/login | Live authentication screen, 1280 × 800 |
 | `public/projects/ai_sre.png` | Locally built AI_SRE `web/`, `/dashboard` | 1440 × 950, API disconnected, no seeded telemetry |
 | `public/projects/echo.png` | User-supplied PNG | Original image, 2814 × 1608 |
 | `public/projects/autoflow.png` | User-supplied PNG | Original image, 2472 × 1456 |
 | `public/projects/campus-chatter.png` | Locally built Campus Chatter `/homepage` | 1440 × 950, public landing page |
 
-Captured 29 October 2026. See `source-revisions.json` for inspected repository commits. The AI_SRE dashboard's own default “Connected”/“AI Active” labels are upstream UI text and are not verified service health; the portfolio caption explicitly identifies the capture as disconnected. No synthetic traces or performance charts were added.
+The original five captures date to 29 October 2026. The Chess repository preview was added on 1 November 2026. See `source-revisions.json` for inspected repository commits. The AI_SRE dashboard's own default “Connected”/“AI Active” labels are upstream UI text and are not verified service health; the portfolio caption explicitly identifies the capture as disconnected. No synthetic traces or performance charts were added.
 
 ## Build and capture AI_SRE yourself
 
@@ -49,7 +50,7 @@ npm run build
 npm run dev
 ```
 
-`assets:check` validates all five PNG signatures, checks desktop capture dimensions, and prints SHA-256 hashes. Next/Image serves optimized versions at responsive sizes. The original PNGs remain available at the requested paths.
+`assets:check` validates all six PNG signatures, checks desktop capture dimensions, and prints SHA-256 hashes. Next/Image serves optimized versions at responsive sizes. The original PNGs remain available at the requested paths.
 
 ## AutoFlow video
 
@@ -74,7 +75,7 @@ Open http://127.0.0.1:4173/homepage and capture a 1440 × 950 screenshot as `pub
 
 ## Hover effect
 
-The thumbnail renderer uses a textured Three.js plane only while hovered by a mouse. At rest, on touch, or with reduced motion, the optimized image stays in place. The video dialog remains a separate button under AutoFlow's image.
+Thumbnails use server-rendered Next/Image and a small CSS scale on fine-pointer hover. Touch and reduced-motion preferences retain the static image. No WebGL context or duplicate texture is allocated. The video dialog remains a separate button under AutoFlow’s image.
 
 ## Google logo
 

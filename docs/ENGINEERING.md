@@ -2,7 +2,7 @@
 
 ## Repository audit and component hierarchy
 
-The repository originally used Next.js 14, Tailwind, React Three Fiber models, particles, audio, and separate presentation pages. The first pass removed that presentation and obsolete assets. This pass keeps Next.js App Router, React 19, CSS modules, self-hosted Inter, and a single semantic page, then adds small interactive areas for theme control, the topology canvas, video preview, and thumbnail hover. No animation framework was added to the portfolio.
+The repository originally used Next.js 14, Tailwind, React Three Fiber models, particles, audio, and separate presentation pages. The first pass removed that presentation and obsolete assets. This pass keeps Next.js App Router, React 19, CSS modules, self-hosted Inter, and a single semantic page, then adds small interactive areas for theme control and video preview; the topology illustration and thumbnails render on the server. No animation framework was added to the portfolio.
 
 ```text
 src/app/layout.js                 metadata + ThemeProvider
@@ -10,12 +10,13 @@ src/app/page.js                   Header → Hero → Projects → Experience �
 src/app/globals.css               light/dark tokens, reset, focus, reduced motion
 src/components/ThemeProvider.jsx  next-themes before-paint theme bootstrap
 src/components/ThemeToggle.jsx    persisted binary toggle, initial system preference
-src/components/TopologyCanvas.jsx lazy Three.js surface and lifecycle cleanup
+src/components/TopologyIllustration.jsx server-rendered SVG surface
 src/components/VideoDemo.jsx      opt-in iframe in native dialog
-src/components/HoverThumbnail.jsx textured-plane hover, image fallback
+src/components/ProjectThumbnail.jsx optimized image with CSS hover
 src/components/Projects.jsx       server-rendered project content and disclosures
 src/components/Portfolio.module.css
 src/data/portfolio.js             source-derived project records and evidence links
+public/projects/chess.png         upstream Chess preview, converted to PNG
 public/projects/ecox.png          real live login capture
 public/projects/ai_sre.png        real local dashboard capture
 public/projects/autoflow.png      user-supplied thumbnail
@@ -40,20 +41,20 @@ The profile-linked Campus Chatter and Echo domains did not resolve during the CL
 
 ## Theme design
 
-`next-themes` applies a class to `<html>` before hydration. `defaultTheme="system"` follows the OS until an explicit choice is persisted as `sc-theme`; the toggle then switches light/dark. The root suppresses the expected theme-class hydration mismatch. Icons are controlled by the root class, avoiding a mounted-only placeholder. With JavaScript disabled, the CSS light palette remains usable. Theme colors come from CSS variables, including panel, text, border, and canvas colors. Transitions are 180ms and are disabled by reduced-motion preference.
+`next-themes` applies a class to `<html>` before hydration. `defaultTheme="system"` follows the OS until an explicit choice is persisted as `sc-theme`; the toggle then switches light/dark. The root suppresses the expected theme-class hydration mismatch. Icons are controlled by the root class, avoiding a mounted-only placeholder. With JavaScript disabled, the CSS light palette remains usable. Theme colors come from CSS variables, including panel, text, border, highlight, and SVG colors. Transitions are 180ms and are disabled by reduced-motion preference.
 
-## WebGL design and lifecycle
+## Decorative rendering and performance
 
-The illustration is a deterministic 22 × 16 subdivided mathematical surface rendered as line segments. Three.js is dynamically imported after IntersectionObserver reports visibility. It uses no textures, lights, postprocessing, particles, or continuous idle rotation.
+The hero surface is an inline, server-rendered SVG using the theme mesh color. Thumbnails use Next/Image with intrinsic dimensions, responsive sizes, and native lazy loading. A CSS scale runs only on fine-pointer hover when reduced motion is not requested. Three.js has been removed from the dependency tree. There are no decorative canvases, GPU texture uploads, frame schedulers, pointer/scroll listeners, or observers.
 
-Pointer and scroll update small rotation targets; time-based exponential damping settles them. The frame scheduler is limited to approximately 60 updates/second and stops after settling, while offscreen, while the document is hidden, or when paused/reduced motion is active. Device pixel ratio is capped at 2. ResizeObserver adjusts camera aspect and output size. A theme-class MutationObserver changes material and clear colors. A static SVG remains available if WebGL is unavailable. Narrow layouts hide the optional aside, so its Three.js chunk does not initialize there.
+Compared with the same six-project production build before the rendering change, emitted JavaScript chunks fell from 1,338,998 to 593,793 bytes (55.7%), or 369,851 to 183,523 bytes when individually gzipped (50.4%). These are build-artifact totals, including lazy chunks, rather than initial network transfer or a measured frame-rate improvement.
 
-Unmount cancels the animation frame, disconnects observers, removes pointer/scroll/visibility/media-query/context listeners, disposes geometry/material/renderer, clears the scene, releases the WebGL context, and removes the canvas. Context loss switches to the fallback until restoration. No 60fps guarantee is claimed on arbitrary hardware.
+Body text is 17px, project summaries 16px, and supporting text was raised by 2px. Theme-aware backgrounds highlight the introduction and technology tags; project headings and metrics use the accent color. Action groups wrap on narrow screens.
 
 ## What remains the same
 
 Resume, experience, education, and achievements use the previous resume integration. The supplied PDF is bundled at `public/resume.pdf`; the CTA requests a direct download. Contact links use `somnathchattaraj5@gmail.com`. Legacy page routes still redirect to sections.
 
-## Thumbnail hover rendering
+## Chess source audit
 
-All five project captures use HoverThumbnail. The real Next/Image remains the accessible baseline. Only a mouse hover imports Three.js and loads the already selected responsive image as an sRGB texture onto a plane. Pointer coordinates produce a maximum roughly 3–4 degree tilt and a 3.5% inset, with exponential damping and an approximately 60Hz update cap. Rendering stops when settled. Leaving eases back to the flat image and disposes the texture, geometry, material, renderer, and context. Offscreen/hidden-document states release it immediately. Resize and intersection observers, media-query listeners, pointer listeners, and pending async work are cleaned up on unmount. Touch/coarse interaction and reduced-motion preference retain the static image. AutoFlow retains a separate accessible walkthrough button below its thumbnail.
+Chess is pinned in `source-revisions.json`. Its Node.js server validates rules with chess.js, owns online clocks, and handles authenticated WebSockets, matchmaking, and private invite rooms. PostgreSQL stores accounts, sessions, and snapshots. Moves are persisted before broadcasting, and clocks are checkpointed each second. Startup recovery charges downtime. Process-local coordination requires a single API replica; no horizontal scalability or rated-competition guarantee is claimed. The thumbnail comes from the repository preview rather than a newly verified production deployment.

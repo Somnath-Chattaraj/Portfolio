@@ -11,6 +11,7 @@
   --muted: #59636f;
   --line: #dce1e5;
   --accent: #365843;
+  --highlight: #e6eddf;
   --panel: #f0f1ed;
   --card: #ffffff;
   --sage: #e6ebdf;
@@ -28,6 +29,7 @@
   --muted: #a1a1aa;
   --line: #2b2d32;
   --accent: #b9cdb2;
+  --highlight: #253126;
   --panel: #17191c;
   --card: #131417;
   --sage: #1c241f;
@@ -61,7 +63,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: Inter, Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
